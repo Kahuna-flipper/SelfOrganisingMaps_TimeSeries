@@ -13,14 +13,14 @@ for i=1:iterations
     sample = randi(m,1)
     sampled_vector = input(sample,:);
     for j=1:p
-        dist = dtw(sampled_vector, weight(p,:));
+        dist = dtw(sampled_vector, weight(j,:));
         if(dist<min)
             min = dist;
             BMU = weight(p,:);
-            index = p;
+            index = j;
         end
-     l = mod(p,m);
-     q = p - m*(l-1); % l and q store index of neuron for weight adjustment
+     l = mod(index,m);
+     q = index - m*(l-1); % l and q store index of neuron for weight adjustment
     end
 end 
 
