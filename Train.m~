@@ -20,7 +20,7 @@ for i=1:iterations
             index = p;
         end
      l = mod(p,m);
-     q = p - m*(l-1); % l and q store index of neuron for weight adjustment
+     q = l - m
     end
 end 
 
