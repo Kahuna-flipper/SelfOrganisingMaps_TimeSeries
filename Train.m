@@ -21,6 +21,26 @@ for i=1:iterations
         end
      l = mod(index,m);
      q = index - m*(l-1); % l and q store index of neuron for weight adjustment
+     for r=1:sigma
+         weights(index,:) = weights(index,:) + alpha*(sample_vector-weights(index,:);
+         if(l<m && q+r<n)
+             temp_index=(m-1)*l+(q+r);
+             weights(temp_index,:) = weights(temp_index,:) + alpha*exp(dtw(weights(temp_index,:),weights(index,:))/(2*r^2));
+         end
+         if(l<m && q-r>0)
+             temp_index=(m-1)*l+(q-r);
+             weights(temp_index,:) = weights(temp_index,:) + alpha*exp(dtw(weights(temp_index,:),weights(index,:))/(2*r^2));
+         end
+         if(l+r<m && q<n)
+             temp_index=(m-1)*(l+r)+(q);
+             weights(temp_index,:) = weights(temp_index,:) + alpha*exp(dtw(weights(temp_index,:),weights(index,:))/(2*r^2));
+         end
+         if(l-r>0 && q<n)
+             temp_index=(m-1)*(l-r)+(q);
+             weights(temp_index,:) = weights(temp_index,:) + alpha*exp(dtw(weights(temp_index,:),weights(index,:))/(2*r^2));
+         end
+         
+             
     end
 end 
 
