@@ -3,7 +3,7 @@
 
 function map = CreateRectangularSOM(rows,columns,dimensions)
 elements = rows*columns;
-map = abs(randn(elements,dimensions));
+map = (randn(elements,dimensions));
 end
 
 

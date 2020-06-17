@@ -10,4 +10,11 @@ for i=1:m
 end
 
 
+weights = CreateRectangularSOM(10,10,n-1);
+
+
+
+
+
+
 
