@@ -51,7 +51,8 @@ for i=1:rows
         mesh(i,j) = avg_distance/count;
     end
 end
-umatrix = mesh;
+
+
 end
 
 

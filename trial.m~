@@ -9,13 +9,10 @@ for i=1:m
     norm_train(i,:) = (norm_train(i,:)-mean(norm_train(i,:)))/std(norm_train(i,:));
 end
 
-tic
+
 weights = CreateRectangularSOM(10,10,n-1);
 
-[net,epoch_alpha] = Train(norm_train,weights,1,1000,3,10,10);
-toc
-
-
+updated_weights = Train(norm_train,weights,0.5,3000,3,10,10);
 
 
 

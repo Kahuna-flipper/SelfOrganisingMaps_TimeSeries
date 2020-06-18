@@ -2,7 +2,7 @@
 
 % Sequential learning :
 
-function [net,epoch_alpha] = Train(input,weights,alpha,iterations,sigma,row,column)
+function [net,alpha] = Train(input,weights,alpha,iterations,sigma,row,column)
 [m,n] = size(input); % m is the number of inputs and n is the input dimension
 [p,~] = size(weights); % p is the number of weights
 
@@ -57,12 +57,10 @@ for i=1:iterations
                     weights(temp_index,:) = weights(temp_index,:) + alpha*exp(-(dtw(weights(temp_index,:),weights(index,:)))/(2*r^2));
                  end 
              end
-         end 
-    alpha = 1/toc;     
+         end       
     end
-
+alpha = 1/toc;
 net = weights;
-epoch_alpha = alpha;
 end 
 
 
