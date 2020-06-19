@@ -23,37 +23,37 @@ for i=1:iterations
     for r=1:sigma
 
          if(l<row && q+r<column)
-             temp_index=(l-1)*row+(q+r);
+             temp_index=(l-1)*columns+(q+r);
              weights(temp_index,:) = weights(temp_index,:) + alpha*exp(-(dtw(weights(temp_index,:),weights(index,:)))/(2*r^2));
          end
          if(l<row && q-r>0)
-             temp_index=row*(l-1)+(q-r);
+             temp_index=columns*(l-1)+(q-r);
              weights(temp_index,:) = weights(temp_index,:) + alpha*exp(-(dtw(weights(temp_index,:),weights(index,:)))/(2*r^2));
          end
          if(l+r<row && q<column)
-             temp_index=row*(l+r-1)+(q);
+             temp_index=columns*(l+r-1)+(q);
              weights(temp_index,:) = weights(temp_index,:) + alpha*exp(-(dtw(weights(temp_index,:),weights(index,:)))/(2*r^2));
          end
          if(l-r>0 && q<column)
-             temp_index=row*(l-r-1)+(q);
+             temp_index=columns*(l-r-1)+(q);
              weights(temp_index,:) = weights(temp_index,:) + alpha*exp(-(dtw(weights(temp_index,:),weights(index,:)))/(2*r^2));
          end
          if(sigma>1)
              for s=1:(sigma-1)
                  if(l-r+s>0 && l-r+s<row && q+s<column)
-                    temp_index=row*(l-r+s-1)+(q+s);
+                    temp_index=columns*(l-r+s-1)+(q+s);
                     weights(temp_index,:) = weights(temp_index,:) + alpha*exp(-(dtw(weights(temp_index,:),weights(index,:)))/(2*r^2));
                  end 
                  if(l-r+s>0 && l-r+s<row && q-s>0)
-                    temp_index=row*(l-r+s-1)+(q-s);
+                    temp_index=columns*(l-r+s-1)+(q-s);
                     weights(temp_index,:) = weights(temp_index,:) + alpha*exp(-(dtw(weights(temp_index,:),weights(index,:)))/(2*r^2));
                  end 
                  if(l-r-s>0 && l-r-s<row && q+s<column)
-                    temp_index=row*(l-r-s-1)+(q+s);
+                    temp_index=columns*(l-r-s-1)+(q+s);
                     weights(temp_index,:) = weights(temp_index,:) + alpha*exp(-(dtw(weights(temp_index,:),weights(index,:)))/(2*r^2));
                  end 
                  if(l-r-s>0 && l-r-s<row && q-s>0)
-                    temp_index=row*(l-r-s-1)+(q-s);
+                    temp_index=columns*(l-r-s-1)+(q-s);
                     weights(temp_index,:) = weights(temp_index,:) + alpha*exp(-(dtw(weights(temp_index,:),weights(index,:)))/(2*r^2));
                  end 
              end
