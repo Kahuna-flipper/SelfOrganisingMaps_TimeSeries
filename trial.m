@@ -11,16 +11,19 @@ end
 
 tic
 
-weights = CreateRectangularSOM(10,10,n-1);
+weights = CreateRectangularSOM(9,9,n-1);
 
-[net,epoch_alpha] = Train(norm_train,weights,1,300,3,10,10);
-[net,epoch_alpha2] = Train(norm_train,net,epoch_alpha,300,3,10,10);
-[net,epoch_alpha3] = Train(norm_train,net,epoch_alpha2,300,3,10,10);
+[net,epoch_alpha] = Train(norm_train,weights,1,500,3,9,9);
+[net2,epoch_alpha2] = Train(norm_train,net,1,50,2,9,9);
+[net3,epoch_alpha3] = Train(norm_train,net2,1,1500,1,9,9);
 
-umatrix = Umatrix(net,10,10);
+umatrix = Umatrix(net3,9,9);
 
-
-
+figure();
+heatmap(umatrix,'Colormap',gray)
+x = 1:9;
+y = 1:9;
+[X,Y] = meshgrid(x,y)
 toc
 
 
