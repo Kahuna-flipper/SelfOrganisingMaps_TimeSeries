@@ -1,6 +1,6 @@
 function UCR_time_series_test %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% (C) Eamonn Keogh %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-TRAIN = load('synthetic_control_TRAIN'); % Only these two lines need to be changed to test a different dataset. %
-TEST = load('synthetic_control_TEST' ); % Only these two lines need to be changed to test a different dataset. %
+TRAIN = load('Wine_TRAIN'); % Only these two lines need to be changed to test a different dataset. %
+TEST = load('Wine_TEST' ); % Only these two lines need to be changed to test a different dataset. %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 TRAIN_class_labels = TRAIN(:,1); % Pull out the class labels.
