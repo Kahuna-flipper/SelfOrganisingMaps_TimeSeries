@@ -24,7 +24,7 @@ for i=1:rows
             count = count+1;
         end
         if(j-1>0)
-            temp_index = [(i-1)*columns+j, (i-2)*columns+j-1];
+            temp_index = [(i-1)*columns+j, (i-1)*columns+j-1];
             avg_distance = avg_distance+dtw(weights(temp_index(1),:),weights(temp_index(2),:));
             count = count+1;
         end
