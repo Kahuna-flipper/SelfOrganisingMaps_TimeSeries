@@ -1,6 +1,6 @@
-function Main(rows,columns,epochs1,iterations,iterations2)
+%function Main(rows,columns,epochs1,iterations,iterations2)
 
-clear;
+
 close all;
 clc;
 
@@ -8,6 +8,12 @@ tic         % Starts timer
 
 TRAIN = load('Wine_TRAIN'); % Only this line needs to be changed to test a different dataset. 
 
+%% Variable declaration for testing :
+rows = 6;
+columns = 6; 
+epochs1 = 7;
+iterations = 100; 
+iterations2 = 100;
 
 %% Z-Normalisation : 
 
@@ -21,14 +27,14 @@ end
 
 
 %% Creating map of desired dimensions
-weights = CreateRectangularSOM(rows,columns,n-1);
+weights = CreateRectangularSOM(norm_train,rows,columns);
 
 sigma = epochs1;
 
 
 %% Training batch 1 : Vector quantization to obtain prototype vectors for clustering
 for i=1:epochs1
-    [net,~] = Train(norm_train,weights,1,iterations,sigma,rows,columns);
+    [net,~] = Train(norm_train,weights,0.9,iterations,sigma,rows,columns);
     weights = net;
     sigma = sigma-1;
 end
@@ -58,9 +64,9 @@ for i=1:m
 end
 
 %% Final Clustering(Code to be added for quantization error)
-map2 = CreateRectangularSOM(1,6,n-1);
+map2 = CreateRectangularSOM(final_weights,1,2);
 
-[centroids,~] = Train(final_weights,map2,0.4657,iterations2,1,1,6);
+[centroids,~] = Train(final_weights,map2,0.9,iterations2,1,1,2);
 
 [a,~] = size(centroids);
 close_units2=zeros(rows*columns,1);
@@ -92,9 +98,29 @@ colormap(cool);
 
 figure(5);
 heatmap(hits);
+
+%% Plotting clusters
+for i=1:2
+    figure();
+    temp = find(close_units2==i);
+    [k,~] = size(temp);
+    for j=1:k
+        temp2=find(close_units==temp(j));
+        [p,~]=size(temp2);
+        if(p~=0)
+            
+           for l=1:p
+               plot(norm_train(temp2(l),:));
+               hold on;
+           end
+        end
+    end
+end
+
+
         
 
 toc  % Ends timer and returns time of computation
 
 
-end 
+%end 
