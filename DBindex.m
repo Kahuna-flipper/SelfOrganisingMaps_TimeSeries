@@ -1,6 +1,6 @@
 function index = DBindex(labels,input,centroids)
 
-n = size(centroids) % number of clusters
+n = size(centroids); % number of clusters
 S1 = 0;
 S2 = 0;
 M = 0;
