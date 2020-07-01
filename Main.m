@@ -6,12 +6,12 @@ clc;
 
 tic         % Starts timer
 
-TRAIN = load('synthetic_control_TRAIN'); % Only this line needs to be changed to test a different dataset. 
+% Only this line needs to be changed to test a different dataset. 
 
 %% Variable declaration for testing :
 rows = 10;
 columns = 10; 
-epochs1 = 7;
+epochs1 = 4;
 iterations = 100; 
 iterations2 = 100;
 
@@ -117,8 +117,13 @@ for i=1:6
     end
 end
 
+clusters = zeros(m,1);
 
-        
+for i=1:size(close_units)
+    clusters(i)=close_units2(close_units(i));
+end
+
+    
 
 toc  % Ends timer and returns time of computation
 
