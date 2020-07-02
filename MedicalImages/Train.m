@@ -9,7 +9,7 @@ function [net,epoch_alpha] = Train(input,weights,alpha,iterations,sigma,row,colu
 BMU = ones(1,n); % stores current best matching unit weight
 
 dist = ones(p,1);
-tic
+
 for i=1:iterations
     sample = randi(m,1);
     sample_vector = input(sample,:);
@@ -60,7 +60,7 @@ for i=1:iterations
                  end
              end 
         end 
-    %alpha = 1/toc;     
+    alpha = alpha/i;     
     end
 
 net = weights;
